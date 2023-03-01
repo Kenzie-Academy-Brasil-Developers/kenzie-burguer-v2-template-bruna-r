@@ -22,7 +22,7 @@ export const ProductsProvider = ({ children }: IDefaultProviderProps) => {
     if (token) {
       const readProducts = async () => {
         try {
-          const response = await api.get<IResponseProducts>(`/products`, {
+          const response = await api.get<IResponseProducts | any>(`/products`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setProducts(response.data);

@@ -21,7 +21,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
 
   const userRegister = async (formData: IRegisterFormValues) => {
     try {
-      const response = await api.post<IResponseUser>('/users', formData);
+      const response = await api.post<IResponseUser | any>('/users', formData);
       setUser(response.data.user);
       localStorage.setItem('@TOKEN', response.data.accessToken);
       localStorage.setItem('@USERID', response.data.user.id);
@@ -35,7 +35,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
 
   const userLogin = async (formData: ILoginFormValues) => {
     try {
-      const response = await api.post<IResponseUser>('/login', formData);
+      const response = await api.post<IResponseUser | any>('/login', formData);
       setUser(response.data.user);
       localStorage.setItem('@TOKEN', response.data.accessToken);
       localStorage.setItem('@USERID', response.data.user.id);
